@@ -2,16 +2,16 @@
 
 // Where is our schema defined?
 // How do we get it in here so we can run methods on it?
-const categoriesSchema = require('./categories-schema');
+const productsSchema = require('./products-schema');
 
-class Categories {
+class Products {
 
   constructor() {
   }
 
   /**
- * @param filters {string} this takes in a parameter to filter by
- * @return result {object} this will return the number of records matching the param, as well as the objects
+ * @param {filters} this takes in a parameter to filter by
+ * @returns {object} this will return the number of records matching the param, as well as the objects
  */
   async get(filters) {
     // Call the appropriate mongoose method to get
@@ -19,7 +19,7 @@ class Categories {
     // If 1, return it as a plain object
     // If 2, return it as an object like this:
     // { count: ##, results: [{}, {}] }
-    const query = categoriesSchema.find(filters);
+    const query = productsSchema.find(filters);
     const result = await query.exec();
     if (result.length == 1) {
       return result[0];
@@ -29,12 +29,12 @@ class Categories {
   }
 
   /**
-   * @param record {number} - this takes in an object request to create a new entry
-   * @return record {object} - this returns the created record
+   * @param {record} - this takes in an object request to create a new entry
+   * @return {record} - this returns the created record
    */
   create(record) {
     // Call the appropriate mongoose method to create a new record
-    return categoriesSchema.create(record);
+    return productsSchema.create(record);
   }
 
   /**
@@ -44,7 +44,7 @@ class Categories {
    */
   update(_id, record) {
     // Call the appropriate mongoose method to update a record
-    return categoriesSchema.findByIdAndUpdate(_id, record, { new: true });
+    return productsSchema.findByIdAndUpdate(_id, record, { new: true });
   }
 
   /**
@@ -53,7 +53,7 @@ class Categories {
    */
   delete(_id) {
     // Call the appropriate mongoose method to delete a record
-    return categoriesSchema.findByIdAndDelete(_id);
+    return productsSchema.findByIdAndDelete(_id);
   }
 
   /**
@@ -61,8 +61,8 @@ class Categories {
    * @return {function} - executes a function that deletes all records
    */
   deleteMany(filters) {
-    return categoriesSchema.deleteMany(filters);
+    return productsSchema.deleteMany(filters);
   }
 }
 
-module.exports = Categories;
+module.exports = Products;

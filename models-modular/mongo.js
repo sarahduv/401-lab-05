@@ -62,7 +62,12 @@ class Model {
     // Call the appropriate mongoose method to delete a record
     return this.schema.findByIdAndDelete(_id);
   }
-
+  
+  /**
+   * Deletes all records in the model
+   * @param filters {string} Mongo Record
+   * @returns {*}
+   */
   deleteMany(filters) {
     return this.schema.deleteMany(filters);
   }
