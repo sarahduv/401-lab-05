@@ -21,10 +21,16 @@ const categories = new Categories();
 async function doWork() {
   await categories.delete(9);
   await categories.create(
-    {_id: '9', name: 'John', description: 'person', }
+    {
+      _id: '9',
+      name: 'John',
+      description: 'person',
+    },
   );
   await categories.update(9,
-    {name: 'Peach', }
+    {
+      name: 'Peach',
+    },
   );
 
   const fetched = await categories.get(9);
