@@ -13,6 +13,11 @@ mongoose.connect(MONGOOSE_URI, { useUnifiedTopology: true, useNewUrlParser: true
 // Do some work
 const Categories = require('./models-singular/categories.js');
 const categories = new Categories();
+
+/**
+ * @param
+ * @returns
+ */
 async function doWork() {
   await categories.delete(9);
   await categories.create(

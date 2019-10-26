@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --verbose",
     "test-watch": "jest --watchAll --verbose",
-    "lint": "eslint models-singular/** models-modular/** __tests__/** ./*.js"
+    "lint": "eslint '**/*.js'"
   },
   "jest": {
     "testEnvironment": "node"
