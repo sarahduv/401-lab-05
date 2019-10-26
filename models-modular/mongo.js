@@ -63,7 +63,7 @@ class Model {
     return this.schema.findByIdAndDelete(_id);
   }
   
-/**
+  /**
    * Deletes all records in the model
    * @param filters {string} Mongo Record
    * @returns {*}
